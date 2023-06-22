@@ -1,7 +1,17 @@
 import OnlineFriend from "./OnlineFriend"
 import "./rightbar.css"
+import { Users } from "../../dummyData"
 
 export default function Rightbar() {
+
+  const onlineFriends = Users.map((user) =>
+      < OnlineFriend
+        key={user.id}
+        profileImage={user.profilePicture}
+        username={user.username}
+      />
+  )
+
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
@@ -15,40 +25,9 @@ export default function Rightbar() {
         <img src="assets/ad.png" alt="" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         
-        <OnlineFriend
-          profileImage="/assets/person/4.jpeg"
-          username="Mila"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/5.jpeg"
-          username="Peter mark"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/2.jpeg"
-          username="Shake Willium"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/7.jpeg"
-          username="John Cenah"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/6.jpeg"
-          username="Jenifer Carter"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/1.jpeg"
-          username="Ema"
-        />
-
-        <OnlineFriend
-          profileImage="/assets/person/9.jpeg"
-          username="John Carter"
-        />
+        
+        {onlineFriends}
+        
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ export default function Post(props) {
             <div className="postTopLeft">
                 <img src={props.userImage} alt="" className="postProfileImg" />
                 <span className="postUsername">{props.username}</span>
-                <span className="postDate">{props.minAgo} mins ago</span>
+                <span className="postDate">{props.minAgo}</span>
             </div>
             <div className="postTopRight">
                 <MoreVert />
