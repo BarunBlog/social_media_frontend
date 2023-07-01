@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./post.css"
 import { MoreVert } from "@mui/icons-material"
+import { Link } from "react-router-dom"
 
 
 export default function Post(props) {
@@ -20,7 +21,10 @@ export default function Post(props) {
       <div className="postWrapper">
         <div className="postTop">
             <div className="postTopLeft">
+              <Link to={'profile/'+props.username}>
                 <img src={props.userImage} alt="" className="postProfileImg" />
+              </Link>
+              
                 <span className="postUsername">{props.username}</span>
                 <span className="postDate">{props.minAgo}</span>
             </div>

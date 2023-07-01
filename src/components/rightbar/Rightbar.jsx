@@ -42,24 +42,24 @@ export default function Rightbar(props) {
     )
   }
 
-  const ProfileRightbar = () => {
+  const ProfileRightbar = ({user}) => {
     return (
       <>
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
 
           <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">Fom:</span>
-            <span className="rightbarInfoValue">Madrid</span>
+            <span className="rightbarInfoKey">From:</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
 
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single</span>
+            <span className="rightbarInfoValue">{user.relationship}</span>
           </div>
 
           <h4 className="rightbarTitle">User frinds</h4>
@@ -76,7 +76,7 @@ export default function Rightbar(props) {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        {props.isProfile ? <ProfileRightbar /> : <HomeRightbar />}
+        {props.isProfile ? <ProfileRightbar user={props.userData} /> : <HomeRightbar />}
        
         
       </div>
