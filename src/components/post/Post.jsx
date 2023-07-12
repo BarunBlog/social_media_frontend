@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./post.css"
 import { MoreVert } from "@mui/icons-material"
 import { Link } from "react-router-dom"
-
+import { AuthContext } from "../../context/AuthContext"
+import axios from "axios";
 
 export default function Post(props) {
 
@@ -10,8 +11,20 @@ export default function Post(props) {
   const [isLiked, setIsLiked] = useState(false)
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user } = useContext(AuthContext)
+  
+  useEffect(() => {
+    setIsLiked(props.likes.includes(user._id))
+  }, [props.likes, user._id])
 
   const likeHandler = () => {
+
+    try {
+      axios.put("/posts/"+props._id+"/like", {userId: user._id});
+    } catch (err) {
+      console.log(err)
+    }
+
     setLike(isLiked? like - 1 : like + 1)
     setIsLiked(!isLiked)
   }
@@ -22,7 +35,7 @@ export default function Post(props) {
         <div className="postTop">
             <div className="postTopLeft">
               <Link to={'profile/'+props.username}>
-                <img src={props.userImage} alt="" className="postProfileImg" />
+                <img src={props.userImage || PF + "/person/sample_profile.jpg"} alt="" className="postProfileImg" />
               </Link>
               
                 <span className="postUsername">{props.username}</span>
