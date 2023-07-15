@@ -12,22 +12,36 @@ export default function Share({ onSharePost }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const desc = useRef()
 
+    const isFormDataEmpty = (formData) => {
+        return formData.has("desc") || formData.has("img");
+    };
+      
+
 
     const submitHandler = async (e) => {
         e.preventDefault()
         const data = new FormData();
 
         data.append("userId", user._id);
-        data.append("desc", desc.current.value);
+
+        if (desc.current.value){
+            data.append("desc", desc.current.value);
+        }
 
         if(file) {
             data.append("img", file);
         }
 
         try{
-            const res = await axios.post("/posts", data)
+            if (!isFormDataEmpty(data)){
+                alert('Please at least give image or description to create a post')
+            } else {
+                const res = await axios.post("/posts", data)
 
-            onSharePost(res.data)
+                onSharePost(res.data)
+                desc.current.value = null
+                setFile(null)
+            }
         } catch(err) {
             console.log(err);
         }
@@ -37,7 +51,7 @@ export default function Share({ onSharePost }) {
         <div className="share">
             <div className="shareWrapper">
                 <div className="shareTop">
-                    <img src={ user.profilePicture ? user.profilePicture : PF+"person/sample_profile.jpg"} alt="" className="shareProfileImg" />
+                    <img src={ user.profilePicture ? user.profilePicture : PF+"/person/sample_profile.jpg"} alt="" className="shareProfileImg" />
                     <input
                         placeholder={`What's in your mind, ${user.username}?`}
                         className="shareInput"

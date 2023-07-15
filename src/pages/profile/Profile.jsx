@@ -33,7 +33,7 @@ export default function Profile() {
                     <div className="profileRightTop">
                         <div className="profileCover">
                             <img src={user.coverPicture || PF+"/person/sample_cover.jpeg"} alt="" className="profileCoverImg" />
-                            <img src={user.coverPicture || PF+"/person/sample_profile.jpg"} alt="" className="profileUserImg" />
+                            <img src={user.profilePicture || PF+"/person/sample_profile.jpg"} alt="" className="profileUserImg" />
                         </div>
 
                         <div className="profileInfo">
@@ -44,7 +44,7 @@ export default function Profile() {
                     <div className="profileRightBottom">
                         <Feed
                             isTimeLine={true}
-                            username="TestUser1"
+                            username={params.username}
                         />
                         <Rightbar
                             isProfile={true}

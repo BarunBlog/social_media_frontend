@@ -40,7 +40,7 @@ export default function Feed(props) {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share onSharePost={addPost}/>
+        {(!props.username || props.username === user.username) && <Share onSharePost={addPost}/>}
 
         {
           posts.map((post) => 

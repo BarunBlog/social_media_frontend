@@ -25,7 +25,7 @@ function App() {
 
         <Route exact path="/register" element={ user ? <Navigate to="/" replace /> : <Register />} />
 
-        <Route exact path="/profile/:username" element={<Profile />}/>
+        <Route exact path="/profile/:username" element={ user ? <Profile /> : <Navigate to="/login"/>}/>
 
       </Routes>
     </Router>
