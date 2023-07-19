@@ -1,6 +1,7 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
+    min-width: 400px;
     background-color: rgb(70, 70, 160);
     display: flex;
     align-items: center;
@@ -15,6 +16,15 @@
 }
 
 .logo{
+    font-size: 24px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.smallLogo{
+    display: none;
     font-size: 24px;
     margin-left: 20px;
     font-weight: bold;
@@ -97,4 +107,46 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+
+@media screen and (max-width: 870px) {
+    .topbarLink{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .searchbar{
+        width: 50%;
+        margin-left: 15px;
+        transition: 150ms;
+    }
+
+    .searchInput{
+        width: 45px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .topbarLeft{
+        flex: 1;
+    }
+
+    .logo{
+        display: none;
+        transition: 150ms;
+    }
+    .smallLogo{
+        display: block;
+        transition: 150ms;
+    }
+
+    .topbarCenter{
+        flex: 5;
+    }
+
+    .searchbar{
+        width: 90%;
+        transition: 150ms;
+    }
 }

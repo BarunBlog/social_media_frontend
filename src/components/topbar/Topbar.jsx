@@ -14,6 +14,7 @@ export default function Topbar() {
             <div className="topbarLeft">
                 <Link to="/" style={{textDecoration: "none"}}>
                     <span className="logo">BindSocial</span>
+                    <span className="smallLogo">B</span>
                 </Link>
             </div>
 

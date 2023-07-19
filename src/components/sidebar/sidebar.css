@@ -1,5 +1,5 @@
 .sidebar {
-    flex: 3;
+    flex: 2.5;
     height: calc(100vh - 50px);
     overflow-y: scroll;
     position: sticky;
@@ -69,4 +69,30 @@
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+}
+
+@media screen and (max-width: 960px) {
+    .sidebarButton{
+        width: 100px;
+        transition: 150ms;
+    }
+}
+
+@media screen and (max-width: 866px) {
+    .sidebar{
+        min-width: 65px;
+        max-width: 65px;
+        transition: 300ms;
+    }
+    .sidebarListItemText, .sidebarHr, .sidebarButton, .sidebarFriendList{
+        display: none;
+        transition: 300ms;
+    }
+    .sidebarListItem{
+        margin-bottom: 30px;
+    }
+    .sidebarWrapper{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

@@ -131,3 +131,24 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 830px) {
+    .rightbar{
+        flex: 2;
+        transition: 200ms;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .rightbar{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .shareOptionText{
+        display: none;
+    }
+}
